@@ -1,6 +1,7 @@
 # Share My Amazon Cart Extension (For Chrome)
+
 -------------------------------------------------------------------------------
-Download here: https://chrome.google.com/webstore/detail/share-my-amazon-cart/
+Download here: https://chrome.google.com/webstore/detail/share-my-amazon-cart/hcjopdlagbhdkacpkdeefnhjemfefjok?hl=en-US&gl=US
 -------------------------------------------------------------------------------
 
 Ever tried to collaborate on an Amazon order with another person, perhaps a significant other or friend? Have you ever wished there was an easier way to share the contents of your Amazon Cart, without having to move all of the items to a wishlist (and back to your cart) or sending a screenshot?
