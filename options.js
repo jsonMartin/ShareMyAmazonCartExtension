@@ -45,9 +45,13 @@ const setAutoSync = (autoSync) => {
     document.getElementById('auto-sync-checkbox').checked = autoSync;
 };
 
-function save_username() {
-    console.log("save username called");
+const saveUsername = () => {
     let newUserName = document.getElementById('username').value;
+
+    if (!/^[A-za-z0-9\-_]+$/.test(newUserName)) {
+        alert("Name can only have characters, letters, -, or _");
+        return;
+    }
 
     chrome.storage.sync.get({userName: false}, ({userName}) => {
         let oldUserName = userName;
@@ -60,7 +64,7 @@ function save_username() {
                 if (oldUserName) {
                     moveFbRecord(database.ref('/carts/' + oldUserName),
                         database.ref('/carts/' + newUserName),
-                        () => chrome.storage.sync.set({userName}, () => showUserName(userName)));
+                        () => chrome.storage.sync.set({userName: newUserName}, () => showUserName(newUserName)));
                 }
                 else {
                     chrome.storage.sync.set({userName: newUserName}, () => showUserName(newUserName));
@@ -70,7 +74,7 @@ function save_username() {
     });
 }
 
-document.getElementById('save').addEventListener('click', save_username);
+document.getElementById('save').addEventListener('click', saveUsername);
 
 document.getElementById('auto-sync-checkbox').addEventListener('click', () => {
     chrome.storage.sync.get({userName: false}, ({userName}) => {
