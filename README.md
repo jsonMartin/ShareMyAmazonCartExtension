@@ -1,4 +1,4 @@
-# ShareMyAmazonCartExtension
+# Share My Amazon Cart Extension (For Chrome)
 Ever tried to collaborate on an Amazon order with another person, perhaps a significant other or friend? Have you ever wished there was an easier way to share the contents of your Amazon Cart, without having to move all of the items to a wishlist (and back to your cart) or sending a screenshot?
 
 Well my friends, Share My Amazon Cart is here to help!
@@ -16,5 +16,7 @@ Hope you enjoy, and this project is also open source. Feel free to check out the
 * Note: this plugin does not collect any private information. The only data collected is the public Amazon cart items and related data.
 
 FUTURE IMPROVEMENTS:
+
 1. Deleted item sync — when users click the deleted icon through the Share My Amazon Cart app, the deleted item will be highlighted in red on the Amazon cart website suggesting that it should be deleted.
+
 2. Notes — allow users of the Share My Amazon Cart app to create notes and suggest additional items to be purchased
