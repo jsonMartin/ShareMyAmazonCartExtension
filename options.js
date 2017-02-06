@@ -32,11 +32,11 @@ document.body.style.backgroundImage = `url(${imgURL})`;
 const showUserName = userName => {
     if (userName) {
         const link = 'https://share-my-cart.firebaseapp.com/cart/' + userName;
-        document.getElementById('current_username').innerHTML = `<a href='${link}'>${userName}</a>`;
+        document.getElementById('current-username').innerHTML = `<a href='${link}'>${userName}</a>`;
         document.getElementById('save').innerText = 'Update';
     }
     else {
-        document.getElementById('current_username').innerText = 'NOT SET';
+        document.getElementById('current-username').innerText = 'NOT SET';
         document.getElementById('save').innerText = 'Set';
     }
 };
@@ -46,7 +46,7 @@ const setAutoSync = (autoSync) => {
 };
 
 function save_username() {
-    console.log("save username called")
+    console.log("save username called");
     let newUserName = document.getElementById('username').value;
 
     chrome.storage.sync.get({userName: false}, ({userName}) => {
@@ -75,21 +75,14 @@ document.getElementById('save').addEventListener('click', save_username);
 document.getElementById('auto-sync-checkbox').addEventListener('click', () => {
     chrome.storage.sync.get({userName: false}, ({userName}) => {
         if (!userName) {
-            chrome.storage.sync.set({autoSync: false}, () => {
-                console.log("autoSync set");
-                document.getElementById('auto-sync-checkbox').checked = false;
-            });
-
+            chrome.storage.sync.set({autoSync: false}, () => document.getElementById('auto-sync-checkbox').checked = false);
             alert("Must have a Custom Cart link set up to use Auto Sync!");
         }
         else {
             let autoSync = document.getElementById('auto-sync-checkbox').checked;
-            chrome.storage.sync.set({autoSync}, () => {
-                console.log("autoSync set");
-            });
+            chrome.storage.sync.set({autoSync}, () => console.log("autoSync set"));
         }
     });
-
 });
 
 document.getElementById('delete-custom-cart').addEventListener('click', () => {

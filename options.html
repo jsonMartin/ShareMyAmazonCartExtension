@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Share My Cart</title>
+    <title>Share My Amazon Cart</title>
     <style>
       body {
         background-size: cover;
@@ -15,13 +15,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -webkit-flex-direction: column;
         flex-direction: column;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-justify-content: center;
-        justify-content: center;
       }
 
       .username {
@@ -35,24 +29,32 @@
       }
 
       .form-container {
-        background-color:rgba(200, 200, 200, .8);
+        background-color:rgba(200, 200, 200, .9);
         padding: 10px;
         border: 2px solid black;
         border-radius: 3px;
         text-align: center;
       }
 
-      #current_username > a {
+
+      #current-username {
+        font-style: italic;
         font-size: 16px;
+        color: red;
+      }
+
+      #current-username > a {
         color: orangered;
       }
 
-      #autoSyncContainer {
+      #auto-sync-container {
         margin-top: 25px;
       }
-      .autoSyncDescription {
+
+      .auto-sync-description {
         font-style: italic;
       }
+
       .auto-sync-checkbox-text {
         font-weight:bolder;
       }
@@ -60,12 +62,17 @@
   </head>
 
   <body>
+    <header>
+      <center>
+        <h1>Share My Amazon Cart</h1>
+      </center>
+    </header>
     <div class="container">
       <div class="form-container">
         <div class="username">
           Custom Cart Link
         </div>
-        <div id="current_username"></div>
+        <div id="current-username"></div>
 
         <br />
 
@@ -79,9 +86,9 @@
         <button id="delete-custom-cart">Delete Custom Cart</button>
       </div>
 
-      <div id="autoSyncContainer" class="form-container" style="margin-bottom:30px;">
+      <div id="auto-sync-container" class="form-container" style="margin-bottom:30px;">
         <div class="auto-sync-checkbox-text">Auto Sync <input id="auto-sync-checkbox" type="checkbox"/></div>
-        <p class="autoSyncDescription">
+        <p class="auto-sync-description">
           * Auto Sync is an experimental feature.<br />
           If a custom cart link is set, auto sync<br />
           will automatically attempt to sync any<br />

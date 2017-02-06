@@ -2,7 +2,7 @@ const ICON_DELAY = 5000; // Delay before icon goes back to normal
 const setIcon = path => path ? chrome.browserAction.setIcon({path}) : chrome.browserAction.setIcon({path: '/images/icon.png'});
 
 // Called when the user clicks on the browser action.
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.browserAction.onClicked.addListener((tab) => {
     // Send a message to the active tab
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         let activeTab = tabs[0];
@@ -11,7 +11,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 
 // Message passed from Content script
-chrome.runtime.onMessage.addListener(function(request,sender,sendResponse) {
+chrome.runtime.onMessage.addListener((request,sender,sendResponse) => {
     if (request.showIcon) {
         let iconName = request['showIcon'] === true ? "icon_yes" : "icon_no";
         let path = `/images/${iconName}.png`;
@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse) {
 });
 
 // Handle Click for Extension Icon
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.browserAction.onClicked.addListener((tab) => {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         let activeTab = tabs[0];
 

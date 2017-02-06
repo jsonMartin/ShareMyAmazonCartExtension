@@ -50,12 +50,10 @@ const clearCartInDatabase = () => {
 const scrapeAmazonForCartItems = () => {
     try {
         items = {}; // Reset cart items
-        //debugger;
 
         for (let element of document.querySelector('.sc-list-body').children) {
             if (element.tagName !== "DIV") continue;
 
-            console.log("Element from amazon scrape:", element);
             const title = $(element).find('.sc-product-title')[0].innerText, titleKey = title.hashCode();
 
             if ($(element).data('removed')) {
@@ -72,14 +70,12 @@ const scrapeAmazonForCartItems = () => {
             }
         }
     } catch(e) {
-        console.warn("Error scraping cart items:", e);
         chrome.runtime.sendMessage({showIcon: false});
     }
 
 };
 
 const addItems = () => {
-    console.log("Add Items runnign");
     scrapeAmazonForCartItems();
 
     if (Object.keys(items).length >= 1) {
@@ -117,7 +113,6 @@ const init = () => {
     chrome.storage.sync.get({userName: false, autoSync: false}, ({userName, autoSync}) => {
         options.userName = userName;
         options.autoSync = autoSync;
-        debugger;
 
         // Auto Sync
         if (options.autoSync) {
