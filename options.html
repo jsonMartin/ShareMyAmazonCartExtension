@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Share My Cart</title>
+    <style>
+      body {
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .container {
+        height: 90vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+      }
+
+      .username {
+        font-size: 26px;
+      }
+
+      .username-input {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+      }
+
+      .form-container {
+        background-color:rgba(200, 200, 200, .8);
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 3px;
+        text-align: center;
+      }
+
+      #current_username > a {
+        font-size: 16px;
+        color: orangered;
+      }
+
+      #autoSyncContainer {
+        margin-top: 25px;
+      }
+      .autoSyncDescription {
+        font-style: italic;
+      }
+      .auto-sync-checkbox-text {
+        font-weight:bolder;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="username">
+          Custom Cart Link
+        </div>
+        <div id="current_username"></div>
+
+        <br />
+
+        <div>
+          <input type="text" id="username" class="username-input"/>
+          <button id="save" class="" type="button">Save</button>
+        </div>
+
+        <br />
+
+        <button id="delete-custom-cart">Delete Custom Cart</button>
+      </div>
+
+      <div id="autoSyncContainer" class="form-container" style="margin-bottom:30px;">
+        <div class="auto-sync-checkbox-text">Auto Sync <input id="auto-sync-checkbox" type="checkbox"/></div>
+        <p class="autoSyncDescription">
+          * Auto Sync is an experimental feature.<br />
+          If a custom cart link is set, auto sync<br />
+          will automatically attempt to sync any<br />
+          activity on Amazon's Cart site with the<br />
+          custom cart link, in real-time. <br />
+        </p>
+      </div>
+    </div>
+  </body>
+
+  <script src="firebase.js"></script>
+  <script src="options.js"></script>
+</html>
